@@ -101,7 +101,7 @@ int main()
 
     std::cout << "***GREEDY ALGORITHM***" << std::endl;
     std::cout << "Execution time: " << std::fixed << std::setprecision(61) << duration_greedy.count() << std::endl;
-    std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << greedyValue << " contains: " << greedyWeight << std::endl;
+    std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << greedyValue << " with weight = " << greedyWeight << std::endl;
     // for (int i = 0; i < bestStructure.size(); i++) 
     // {
     //     std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
@@ -145,7 +145,14 @@ int main()
     std::chrono::duration<long double> duration_BnB = end_BnB - start_BnB;
     std::cout << "***BRANCH AND BOUND ALGORITHM***" << std::endl;
     std::cout << "Execution time: " << std::fixed << std::setprecision(61) << duration_BnB.count() << std::endl;
-    std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << maxValue << " contains: " << std::endl;
+    std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << maxValue << "" << std::endl;
+
+    float delta = abs(maxValue - greedyValue);
+    if(delta != 0)
+    {
+        delta /= maxValue;
+    }
+    std::cout << "Delta of greedy algorithm = " << delta * 100 << " %" << std::endl;
     // for (int i = 0; i < bestStructure.size(); i++) 
     // {
     //     std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
