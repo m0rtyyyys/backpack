@@ -4,7 +4,7 @@
 
 ## Скриншот
 
-![Вывод программы](screen.png)
+![Вывод программы](https://imgur.com/a/2NpfZNl)
 
 ## Стек технологий:
 
@@ -15,13 +15,13 @@ CMake 3.15
 
 Для CMake:
 Распаковать архив с исходным кодом. Создать папку build. Открыть терминал в папке build. Написать следующие команды:
-'cmake ..'
-'cmake --build .'
+`cmake ..`
+`cmake --build .`
 Перейти в bin. Запустить файл backpack.exe.
 
 Для gcc:
 Открыть терминал в папке src и прописать следующую команду:
-'g++ -std=c++17 main.cpp items.cpp node.cpp -o backpack'
+`g++ -std=c++17 main.cpp items.cpp node.cpp -o backpack`
 
 ## Функционал:
 
