@@ -10,7 +10,6 @@
 
 int main() 
 {
-    
     std::random_device rd;
     std::mt19937 gen(rd());
     int ch, N;
@@ -99,13 +98,26 @@ int main()
     auto end_greedy = std::chrono::high_resolution_clock::now();
     std::chrono::duration<long double> duration_greedy = end_greedy - start_greedy;
 
-    std::cout << "***GREEDY ALGORITHM***" << std::endl;
+    std::cout << R"(
+###################################################################################
+
+ _____                   _          ___  _                  _ _   _               
+|  __ \                 | |        / _ \| |                (_) | | |              
+| |  \/_ __ ___  ___  __| |_   _  / /_\ \ | __ _  ___  _ __ _| |_| |__  _ __ ___  
+| | __| '__/ _ \/ _ \/ _` | | | | |  _  | |/ _` |/ _ \| '__| | __| '_ \| '_ ` _ \ 
+| |_\ \ | |  __/  __/ (_| | |_| | | | | | | (_| | (_) | |  | | |_| | | | | | | | |
+ \____/_|  \___|\___|\__,_|\__, | \_| |_/_|\__, |\___/|_|  |_|\__|_| |_|_| |_| |_|
+                            __/ |           __/ |                                 
+                           |___/           |___/                                  
+
+###################################################################################
+    )" << std::endl;
     std::cout << "Execution time: " << std::fixed << std::setprecision(61) << duration_greedy.count() << std::endl;
     std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << greedyValue << " with weight = " << greedyWeight << std::endl;
-    // for (int i = 0; i < bestStructure.size(); i++) 
-    // {
-    //     std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
-    // }
+    for (int i = 0; i < bestStructure.size(); i++) 
+    {
+        std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
+    }
 
     bestStructure.clear();
     auto start_BnB = std::chrono::high_resolution_clock::now();
@@ -143,19 +155,30 @@ int main()
     }
     auto end_BnB = std::chrono::high_resolution_clock::now();
     std::chrono::duration<long double> duration_BnB = end_BnB - start_BnB;
-    std::cout << "***BRANCH AND BOUND ALGORITHM***" << std::endl;
+    std::cout << R"(
+#######################################################################################
+
+______                      _                       _   _                           _ 
+| ___ \                    | |                     | | | |                         | |
+| |_/ /_ __ __ _ _ __   ___| |__     __ _ _ __   __| | | |__   ___  _   _ _ __   __| |
+| ___ \ '__/ _` | '_ \ / __| '_ \   / _` | '_ \ / _` | | '_ \ / _ \| | | | '_ \ / _` |
+| |_/ / | | (_| | | | | (__| | | | | (_| | | | | (_| | | |_) | (_) | |_| | | | | (_| |
+\____/|_|  \__,_|_| |_|\___|_| |_|  \__,_|_| |_|\__,_| |_.__/ \___/ \__,_|_| |_|\__,_|   
+
+#######################################################################################
+)" << std::endl;
     std::cout << "Execution time: " << std::fixed << std::setprecision(61) << duration_BnB.count() << std::endl;
     std::cout << "Backpack with the best value = " << std::fixed << std::setprecision(7) << maxValue << "" << std::endl;
 
-    float delta = abs(maxValue - greedyValue);
+    float delta = std::abs(maxValue - greedyValue);
     if(delta != 0)
     {
         delta /= maxValue;
     }
     std::cout << "Delta of greedy algorithm = " << delta * 100 << " %" << std::endl;
-    // for (int i = 0; i < bestStructure.size(); i++) 
-    // {
-    //     std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
-    // }
+    for (int i = 0; i < bestStructure.size(); i++) 
+    {
+        std::cout << "Item with weight = " << bestStructure[i].get_weight() << " and value = " << bestStructure[i].get_value() << std::endl;
+    }
     return 0;
 }
