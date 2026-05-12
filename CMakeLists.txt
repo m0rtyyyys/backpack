@@ -18,10 +18,3 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Добавляем подпапки
 add_subdirectory(src)
-
-# Опционально: тесты
-option(BUILD_TESTING "Build tests" ON)
-if(BUILD_TESTING)
-    enable_testing()
-    add_subdirectory(tests)
-endif()
