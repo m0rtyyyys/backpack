@@ -11,7 +11,7 @@ void Node::set_level(int l)
     level = l;
 }
 
-float Node::get_totalValue() 
+double Node::get_totalValue() 
 {
     return totalValue;
 }
@@ -21,7 +21,7 @@ void Node::set_totalValue(float v)
     totalValue = v;
 }
 
-float Node::get_totalWeight() 
+double Node::get_totalWeight() 
 {
     return totalWeight;
 }
@@ -31,32 +31,32 @@ void Node::set_totalWeight(float w)
     totalWeight = w;
 }
 
-float Node::get_bound() 
-{
-    return bound;
-}
+// float Node::get_bound() 
+// {
+//     return bound;
+// }
 
-void Node::set_bound(float b) 
-{
-    bound = b;
-}
+// void Node::set_bound(float b) 
+// {
+//     bound = b;
+// }
 
-std::vector<Item> Node::get_structure() 
-{
-    return structure;
-}
+// std::vector<Item> Node::get_structure() 
+// {
+//     return structure;
+// }
 
-void Node::push_structure(Item i) 
-{
-    structure.emplace_back(i);
-}
+// void Node::push_structure(Item i) 
+// {
+//     structure.emplace_back(i);
+// }
 
-float Node::calculate_bound(float capacity, const std::vector<float>& weights, const std::vector<float>& values)
+float Node::calculate_bound(double capacity, const std::vector<double>& weights, const std::vector<double>& values)
 {   
     if (totalWeight > capacity) return 0;
-    float last_lvl = level;
-    float tWeight = totalWeight;
-    float tValue = totalValue;
+    double last_lvl = level;
+    double tWeight = totalWeight;
+    double tValue = totalValue;
     for(int i = level + 1; (i < weights.size()-1) && (tWeight + weights.at(i) <= capacity) ; i++)
     {
         tWeight += weights.at(i);

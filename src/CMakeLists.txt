@@ -14,7 +14,7 @@ target_include_directories(items PUBLIC
 
 # Создаем основной исполняемый файл
 #add_executable(backpack main_multi.cpp)
-add_executable(backpack main.cpp)
+add_executable(backpack main_multi.cpp)
 
 # Линкуем библиотеку к исполняемому файлу
 target_link_libraries(backpack PRIVATE node)
